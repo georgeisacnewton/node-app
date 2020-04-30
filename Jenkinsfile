@@ -7,10 +7,7 @@ pipeline {
             usernamePassword(credentialsId: '28519c1b-4036-4fc1-961f-f92cf70853e7', usernameVariable: 'AWS_KEY', passwordVariable: 'AWS_SECRET')
           ]) {
             sh '''
-             export PACKER_LOG=1
-             export PACKER_LOG_PATH=$WORKSPACE/packer.log
-             echo "packer log path:" $PACKER_LOG_PATH
-             packer build -var aws_access_key=${AWS_KEY} -var aws_secret_key=${AWS_SECRET} packer/packer.json
+             packer build -var aws_access_key=${AWS_KEY} -var aws_secret_key=${AWS_SECRET} -debug packer/packer.json
             '''
         }
       }
