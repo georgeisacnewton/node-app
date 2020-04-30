@@ -7,6 +7,7 @@ provider "aws" {
   region = "us-east-2"
   access_key = ""
   secret_key = ""
+  version = "=1.33.0"
 }
 
 resource "aws_key_pair" "deployer" {
