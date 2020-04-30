@@ -11,7 +11,7 @@
       "type": "amazon-ebs",
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
-      "region": "us-east-1",
+      "region": "us-east-2b",
       "source_ami_filter": {
         "filters": {
           "virtualization-type": "hvm",
@@ -26,8 +26,8 @@
       "ssh_timeout": "20m",
       "ami_name": "{{user `ami_name`}}",
       "ssh_pty" : "true",
-      "vpc_id": "vpc-7ef6f504",
-      "subnet_id": "subnet-08dd7506",
+      "vpc_id": "vpc-d89645b3",
+      "subnet_id": "subnet-0114257b",
       "tags": {
         "Name": "Packer image",
         "BuiltBy": "Packer"
