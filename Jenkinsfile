@@ -7,8 +7,7 @@ pipeline {
             usernamePassword(credentialsId: '28519c1b-4036-4fc1-961f-f92cf70853e7', usernameVariable: 'AWS_KEY', passwordVariable: 'AWS_SECRET')
           ]) {
             sh '''
-            cd packer
-            packer build -var aws_access_key=${AWS_KEY} -var aws_secret_key=${AWS_SECRET} packer.json
+             packer build -var aws_access_key=AKIAJR4HSCIMMAATFYGA -var aws_secret_key=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 packer/packer.json
             '''
         }
       }
