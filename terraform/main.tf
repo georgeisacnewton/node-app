@@ -50,7 +50,7 @@ from_port = 22
 
 data "aws_ami" "latest-ami" {
 most_recent = true
-# owners = ["099720109477"] # Canonical
+owners = ["406461302707"] 
   filter {
     name   = "name"
     values = ["ami-base-001"]
