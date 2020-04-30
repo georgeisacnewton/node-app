@@ -19,7 +19,7 @@ most_recent = true
 owners = ["406461302707"] 
   filter {
     name   = "name"
-    values = ["ami-base-{{$BUILD_NUMBER}}"]
+    values = ["ami-base-004"]
   }
 
   filter {
