@@ -3,7 +3,7 @@
     "aws_access_key": "",
     "aws_secret_key": "",
     "instance_size": "t2.micro",
-    "ami_name": "ami-base-{{$BUILD_NUMBER}}",
+    "ami_name": "ami-base-004",
     "ssh_username": "ec2-user"
   },
   "builders": [
