@@ -1,55 +1,43 @@
 {
   "variables": {
     "aws_access_key": "",
-    "aws_secret_key": ""
+    "aws_secret_key": "",
+    "instance_size": "t2.micro",
+    "ami_name": "ami-base-001",
+    "base_ami": "ami-0f7919c33c90f5b58",
+    "ssh_username": "ec2-user",
+    "vpc_id": "",
+    "subnet_id": ""
   },
-
-  "provisioners": [
+  "builders": [
     {
-        "type": "shell",
-        "execute_command": "echo 'ubuntu' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
-        "inline": [
-            "sleep 30",
-            "apt-add-repository ppa:ansible/ansible -y",
-            "/usr/bin/apt-get update",
-            "/usr/bin/apt-get -y install ansible",
-            "mkdir /home/ubuntu/node-app",
-            "chown ubuntu:ubuntu /home/ubuntu/node-app"
-        ]
-    },
-    {
-      "type": "file",
-      "source": ".",
-      "destination": "/home/ubuntu/node-app/"
-    },
-    {
-      "type": "ansible-local",
-      "playbook_file": "packer/ansible-playbook.yml"
+      "type": "amazon-ebs",
+      "region": "us-east-1",
+      "source_ami": "{{user `base_ami`}}",
+      "instance_type": "{{user `instance_size`}}",
+      "ssh_username": "{{user `ssh_username`}}",
+      "ssh_timeout": "20m",
+      "ami_name": "{{user `ami_name`}}",
+      "ssh_pty" : "true",
+      "vpc_id": "vpc-d89645b3",
+      "subnet_id": "subnet-0114257b",
+      "tags": {
+        "Name": "App Name",
+        "BuiltBy": "Packer"
+      }
     }
   ],
+  "description": "AWS image",
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo yum update -y",
+        "sudo yum install -y git"
+        "sudo yum install -y curl"
+        "sudo yum install -y ansible"
 
-  "builders": [{
-    "type": "amazon-ebs",
-    "access_key": "{{user `aws_access_key`}}",
-    "secret_key": "{{user `aws_secret_key`}}",
-    "region": "ap-south-1",
-    "source_ami_filter": {
-      "filters": {
-        "virtualization-type": "hvm",
-        "name": "ubuntu/images/*ubuntu-trusty-14.04-amd64-server-*",
-        "root-device-type": "ebs"
-      },
-      "owners": ["099720109477"],
-      "most_recent": true
-    },
-    "instance_type": "t2.micro",
-    "ssh_username": "ubuntu",
-    "ami_name": "packer-example {{timestamp}}",
-    "launch_block_device_mappings": [{
-      "device_name": "/dev/sda1",
-      "volume_size": 8,
-      "volume_type": "gp2",
-      "delete_on_termination": true
-    }]
-  }]
+      ]
+    }
+  ]
 }
