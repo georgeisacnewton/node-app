@@ -12,8 +12,18 @@
   "builders": [
     {
       "type": "amazon-ebs",
-      "region": "us-east-1",
-      "source_ami": "{{user `base_ami`}}",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "region": "us-east-2",
+      "source_ami_filter": {
+        "filters": {
+          "virtualization-type": "hvm",
+          "name": "amzn2-ami-hvm-2.0.20200406.0-x86_64-gp2",
+          "root-device-type": "ebs"
+        },
+        "owners": ["137112412989"],
+        "most_recent": true
+        },
       "instance_type": "{{user `instance_size`}}",
       "ssh_username": "{{user `ssh_username`}}",
       "ssh_timeout": "20m",
@@ -34,8 +44,6 @@
       "inline": [
         "sudo yum update -y",
         "sudo yum install -y git"
-        "sudo yum install -y curl"
-        "sudo yum install -y ansible"
 
       ]
     }
