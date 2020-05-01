@@ -20,7 +20,7 @@ most_recent = true
 owners = ["406461302707"] 
   filter {
     name   = "name"
-    values = ["${ami_name}"]
+    values = ["${var.ami_name}"]
   }
 
   filter {
