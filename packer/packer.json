@@ -40,7 +40,7 @@
       "type": "shell",
       "inline": [
         "sleep 30",
-        "sudo yum update -y", "sudo yum install -y git", "sudo yum install python37","curl -O https://bootstrap.pypa.io/get-pip.py",
+        "sudo yum update -y", "sudo yum install -y git", "sudo yum install -y python37","curl -O https://bootstrap.pypa.io/get-pip.py",
         "python3 get-pip.py --user","pip install ansible"
        ]
     },
