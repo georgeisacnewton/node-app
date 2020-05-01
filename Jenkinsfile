@@ -25,7 +25,7 @@ pipeline {
             sh '''
                cd terraform
                terraform init
-               terraform apply -auto-approve -var access_key=${AWS_KEY} -var secret_key=${AWS_SECRET} -var ami-name=${image-name}
+               terraform apply -auto-approve -var access_key=${AWS_KEY} -var secret_key=${AWS_SECRET} -var ami_name=${image-name}
             '''
         }
       }
