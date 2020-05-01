@@ -2,7 +2,7 @@ pipeline {
   agent any
   
   environment {
-        IMAGE_NAME = "base-image-v1"
+        IMAGE_NAME = "base-ami-v1"
     }
   
   stages {
