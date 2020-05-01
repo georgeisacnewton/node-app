@@ -1,4 +1,4 @@
 ---
 - name: Print
-    debug:
-      msg: "Test is successful"
+  debug:
+    msg: "Test is successful"
