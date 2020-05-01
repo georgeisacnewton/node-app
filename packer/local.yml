@@ -1,5 +1,5 @@
 ---
-- stat: path=/path/to/something
+- stat: path=/usr/bin/git
   register: p
 
 - debug: 
