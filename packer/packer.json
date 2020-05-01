@@ -44,6 +44,10 @@
         "sudo yum install -y git"
 
       ]
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "local.yml"
     }
   ]
 }
