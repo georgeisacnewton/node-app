@@ -40,13 +40,12 @@
       "type": "shell",
       "inline": [
         "sleep 30",
-        "sudo yum update -y", "sudo yum install -y git", "sudo yum install -y python37","curl -O https://bootstrap.pypa.io/get-pip.py",
-        "python3 get-pip.py --user","pip install ansible"
+        "sudo yum update -y", "sudo yum install -y git", "sudo yum install -y python37"
        ]
-    },
-    {
-      "type": "ansible-local",
-      "playbook_file": "packer/local.yml"
     }
+    // {
+    //   "type": "ansible-local",
+    //   "playbook_file": "packer/local.yml"
+    // }
   ]
 }
