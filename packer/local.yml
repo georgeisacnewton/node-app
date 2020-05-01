@@ -1,6 +1,3 @@
 ---
-- stat: path=/usr/bin/git
-  register: p
-
 - debug: 
-    msg: "{{p}}}"
+    msg: " Test has been compeleted for this AMI"
