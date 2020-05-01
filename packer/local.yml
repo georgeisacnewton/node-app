@@ -1,3 +1,4 @@
 ---
-- debug: 
-    msg: " Test has been compeleted for this AMI"
+- name: Print
+    debug:
+      msg: "Test is successful"
