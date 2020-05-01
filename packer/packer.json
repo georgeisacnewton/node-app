@@ -41,7 +41,8 @@
       "inline": [
         "sleep 30",
         "sudo yum update -y",
-        "sudo yum install -y git"
+        "sudo yum install -y git",
+        "sudo pip install ansible==2.7.9"
 
       ]
     },
